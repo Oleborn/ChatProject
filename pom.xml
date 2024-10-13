@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- Указываем версию модели проекта POM и пространства имен, необходимые для корректной работы Maven -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Указываем идентификаторы проекта -->
+    <groupId>oleborn</groupId>  <!-- Групповой идентификатор проекта (обычно соответствует домену организации в обратном порядке) -->
+    <artifactId>chat-project</artifactId>  <!-- Идентификатор артефакта для этого проекта (имя приложения) -->
+    <version>1.0-SNAPSHOT</version>  <!-- Версия проекта (SNAPSHOT обозначает, что версия нестабильна и находится в процессе разработки) -->
+    <packaging>pom</packaging>  <!-- Указываем тип упаковки проекта: в данном случае это "pom", что означает агрегированный проект (содержит модули) -->
+
+    <!-- Определяем модули, включённые в проект -->
+    <modules>
+        <module>client</module>  <!-- Модуль проекта: клиентская часть -->
+        <module>server</module>  <!-- Модуль проекта: серверная часть -->
+        <module>network</module>  <!-- Модуль проекта: сеть, может содержать логику для взаимодействия между клиентом и сервером -->
+    </modules>
+
+    <!-- Определяем свойства проекта -->
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>  <!-- Версия исходного кода Java, используемая для компиляции (Java 21) -->
+        <maven.compiler.target>21</maven.compiler.target>  <!-- Целевая версия Java для выполнения скомпилированного кода (Java 21) -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  <!-- Кодировка исходного кода проекта -->
+    </properties>
+
+    <!-- Конфигурация сборки проекта -->
+    <build>
+        <pluginManagement>
+            <!-- Управление плагинами, которые будут использоваться для сборки проекта -->
+            <plugins>
+                <!-- Плагин для компиляции кода -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>  <!-- Плагин компилятора для компиляции исходного кода Java -->
+                    <version>3.8.1</version>  <!-- Версия плагина -->
+                    <configuration>
+                        <source>21</source>  <!-- Версия исходного кода Java для компиляции -->
+                        <target>21</target>  <!-- Целевая версия Java -->
+                    </configuration>
+                </plugin>
+
+                <!-- Плагин для создания JAR-архива -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>  <!-- Плагин для упаковки проекта в JAR файл -->
+                    <version>3.2.0</version>  <!-- Версия плагина -->
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
